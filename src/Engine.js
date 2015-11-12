@@ -5,14 +5,15 @@ var Engine = function () {
     //Private attributs and methods
     var plateauDeJeu;
     var couleur = {black: 0, white: 1, red: 2, green: 3, blue:4, yellow: 5};
+    var joueurCourant = 1;
 
     var initialisationPlateau = function(){
-        plateauDeJeu = [[0, 3, 1, 4, 2, 1],
-            [5, 1, 3, 2, 5, 4],
-            [4, 5, 4, 1, 0, 2],
-            [2, 0, 2, 3, 4, 1],
-            [1, 3, 5, 0, 5, 3],
-            [5, 4, 0, 2, 3, 0]];
+        plateauDeJeu = [[color.black,color.green,color.white,color.blue,color.red,color.white],
+            [color.yellow,color.white,color.green, color.red, color.yellow, color.blue],
+            [color.blue, color.yellow, color.blue, color.white, color.black, color.red],
+            [color.red, coor.black, color.red, color.green, color.blue, color.white],
+            [color.white, color.green, color.yellow, color.black, color.yellow, color.green],
+            [color.yellow, color.blue, color.black, color.red, color.green, color.black]];
         return 0;
     };
 
@@ -20,5 +21,13 @@ var Engine = function () {
 
     this.initialisation = function(){
         return (initialisationPlateau()===0) ? true : false;
+    };
+
+    this.getJoueurCourant = function(){
+        return getJoueur(joueurCourant);
+    };
+
+    var getJoueur =function(joueur){
+        return (joueur == 1)? "white":"black";
     };
 };
